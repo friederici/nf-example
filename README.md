@@ -20,4 +20,4 @@ Java 11+, Docker
 ### minikube
     minikube start
     minikube kubectl -- apply -f k8s.yaml
-    nextflow kuberun friederici/nf-example -r main -latest -v somepvc:/data
+    nextflow kuberun friederici/nf-example -r main -latest
