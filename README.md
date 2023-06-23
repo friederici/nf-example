@@ -2,6 +2,9 @@
 
 ## Installation
 
+### dependencies
+Java 11+, Docker
+
 ### nextflow
     curl -s https://get.nextflow.io | bash
 
