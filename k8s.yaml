@@ -14,29 +14,30 @@ metadata:
 ---
 
 apiVersion: rbac.authorization.k8s.io/v1
-kind: Role
+kind: ClusterRole
 metadata:
   namespace: example
   name: example-role
 rules:
   - apiGroups: [""]
-    resources: ["pods","pods/status","pods/log","pods/exec"]
-    verbs: ["get", "list", "watch", "create", "delete"]
+    resources: ["pods","pods/status","pods/log","pods/exec","nodes","bindings","configmaps"]
+    verbs: ["get", "list", "watch", "create", "update", "patch", "delete"]
 
 ---
 
 apiVersion: rbac.authorization.k8s.io/v1
-kind: RoleBinding
+kind: ClusterRoleBinding
 metadata:
   namespace: example
   name: example-rolebind
 roleRef:
-  kind: Role
+  kind: ClusterRole
   name: example-role
   apiGroup: rbac.authorization.k8s.io
 subjects:
   - kind: ServiceAccount
     name: sauser
+    namespace: example
 
 ---
 
